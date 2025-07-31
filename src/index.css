@@ -1,12 +1,16 @@
 @import "tailwindcss";
+@plugin "daisyui";
 
-@plugin "daisyui" {
-    themes: winter --default, business --prefersdark, winter;
+@plugin "daisyui/theme" {
+    name: "winter";
+    default: true;
+    --color-primary: #0C152B;
+    --color-secondary: #FF6700;
 }
 
 html {
     scroll-behavior: smooth;
-  }
+}
 
 .loader {
     height: 15px;
@@ -43,11 +47,14 @@ html {
 }
 
 .bg-gradient-custom {
-  background-image: linear-gradient(
-    to top,
-    rgba(60, 70, 255, 0.7) 0%,
-    rgba(255, 128, 49, 0.7) 60%,
-    rgba(255, 255, 255, 0) 100%
-  );
+    background-image: linear-gradient(to top,
+            rgba(60, 70, 255, 0.7) 0%,
+            rgba(255, 128, 49, 0.7) 60%,
+            rgba(255, 255, 255, 0) 100%);
 }
 
+.bg-gradient-custom-blue {
+    background: linear-gradient(to left,
+            #000bac 0%,
+            #00164d 100%);
+}

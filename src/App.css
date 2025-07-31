@@ -1,5 +1,8 @@
 @import "tailwindcss";
-
-@plugin "daisyui" {
-    themes: winter --default, business --prefersdark, winter;
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+    name: "winter";
+    default: true;
+    --color-primary: #0C152B;
+    --color-secondary: #FF6700;
 }
