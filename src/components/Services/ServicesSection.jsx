@@ -22,11 +22,13 @@ const services = [
 function ServicesSection() {
   return (
     <section className="container mx-auto px-4 py-12">
-      <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold">NUESTROS SERVICIOS</h1>
-        <p className="text-gray-600 mt-2">
+      <div className="text-left mb-8">
+        <h2 className="text-[16px] font-semibold text-[#FF6700] mb-0">
+          NUESTROS SERVICIOS
+        </h2>
+        <h1 className="text-[40px] max-w-[450px] relative font-bold text-[#0C152B] mt-0 leading-tight">
           Ofrecemos una amplia variedad de Servicios
-        </p>
+        </h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
