@@ -1,14 +1,9 @@
 import { useState, useEffect } from "react";
-import Hero from "./components/Hero.jsx";
 import Navbar from "./components/Navbar";
-import Servicios from "./components/Servicios";
-import Nosotros from "./components/Nosotros";
-import Proyectos from "./components/Proyectos";
-import Contacto from "./components/Contacto";
 import Footer from "./components/Footer";
 import AOS from "aos"
 import 'aos/dist/aos.css'
-import ServiceStructuredData from "./components/ServiceStructuredData";
+import ServicesSection from "./components/Services/ServicesSection.jsx";
 
 
 
@@ -44,8 +39,8 @@ function App() {
 
   return (
     <div className={`relative min-h-screen ${theme === "business" ? "text-white bg-gray-900" : "bg-base-200"}`}>
-      <ServiceStructuredData />
       <Navbar />
+      <ServicesSection />
       <Footer />
     </div>
   );
