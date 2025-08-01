@@ -4,20 +4,21 @@ import ServicesCard from "./ServicesCard";
 const services = [
   {
     title: "Extintores",
-    image: "/images/services/serviceCard1.webp",
+    image: `${import.meta.env.BASE_URL}images/services/serviceCard1.webp`,
     description: "Instalación y mantenimiento de extintores.",
   },
   {
     title: "Dictamen",
-    image: "/images/services/serviceCard2.webp",
+    image: `${import.meta.env.BASE_URL}images/services/serviceCard2.webp`,
     description: "Evaluaciones técnicas y reportes profesionales.",
   },
   {
     title: "Protección Civil",
-    image: "/images/services/serviceCard3.webp",
+    image: `${import.meta.env.BASE_URL}images/services/serviceCard3.webp`,
     description: "Planes y simulacros de emergencia.",
   },
 ];
+
 
 function ServicesSection() {
   return (
