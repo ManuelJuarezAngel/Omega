@@ -58,3 +58,7 @@ html {
             #000bac 0%,
             #00164d 100%);
 }
+
+.bg-gradient-custom-horizontal {
+  background: linear-gradient(to right, #FF6700, #001C60);
+}
