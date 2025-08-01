@@ -60,5 +60,9 @@ html {
 }
 
 .bg-gradient-custom-horizontal {
-  background: linear-gradient(to right, #FF6700, #001C60);
+  background: linear-gradient(
+    to right,
+    rgba(255, 103, 0, 0.9),
+    rgba(0, 28, 96, 0.9)
+  );
 }
