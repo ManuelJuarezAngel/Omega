@@ -58,3 +58,11 @@ html {
             #000bac 0%,
             #00164d 100%);
 }
+
+.bg-gradient-custom-horizontal-nosotros {
+  background: linear-gradient(
+    to right,
+    rgba(40, 71, 145, 0.9),
+    rgba(12, 21, 43, 0.9)
+  );
+}
