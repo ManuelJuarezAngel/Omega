@@ -21,10 +21,10 @@ export default function Navbar({ setTheme, theme }) {
     // Clases dinámicas para el navbar
     const navbarClasses = isScrolled
         ? "bg-white text-black"
-        : "bg-transparent";
+        : "bg-transparent text-white";
 
     return (
-        <header className={`navbar fixed w-full transition-all duration-300 ease-in-out flex justify-center items-center flex-col z-50 p-0`}>
+        <header className={`navbar fixed w-full transition-all duration-300 ease-in-out flex justify-center items-center flex-col z-50 p-0 ${navbarClasses}`}>
             <div className='w-full bg-gradient-custom-blue h-9 top-0 flex justify-center items-center'>
                 <div className='max-w-7xl w-[100%] h-full flex justify-between items-center p-1'>
                     <div className='flex items-center justify-center text-center gap-1'>
@@ -34,7 +34,7 @@ export default function Navbar({ setTheme, theme }) {
                         <a className='text-white text-sm p-0 m-0'>correo@dominio</a>
                     </div>
                     <div className='flex justify-center align-center gap-3'>
-                        <div className='flex justify-center align-center pb-1'>
+                        <div className='hidden justify-center align-center pb-1 md:flex'>
                             <p className='font-bold text-white text-center text-sm m-0'>Horarios de atencion | 09:00 am - 06:00 pm |</p>
                         </div>
                         <div className='flex items-center justify-center gap-3'>
@@ -51,17 +51,26 @@ export default function Navbar({ setTheme, theme }) {
                     </div>
                 </div>
             </div>
-            <div className={`navbar-start w-[99%] lg:w-[90%] max-w-7xl transition-all duration-300 ease-in-out flex justify-between items-center py-2 px-4 rounded ${navbarClasses}`}>
+            <div className={`navbar-start w-[99%] lg:w-[90%] max-w-7xl transition-all duration-300 ease-in-out flex justify-between items-center px-4 rounded ${navbarClasses}`}>
 
-                <div className="dropdown lg:hidden block">
+                <div className="dropdown lg:hidden block py-3">
                     <div tabIndex={0} role="button" className="hover:bg-neutral-800 hover:text-white p-2 rounded">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" /> </svg>
                     </div>
                     <ul
                         tabIndex={0}
-                        className="menu menu-sm dropdown-content rounded z-1 mt-3 w-52 p-2 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg">
+                        className="menu menu-sm dropdown-content rounded z-1 mt-3 w-55 p-2 bg-white text-black shadow-lg">
                         <li><a href='#hero'>Home</a></li>
-                        <li><a href='#servicios'>Servicios</a></li>
+                        <li><details>
+                            <summary className="flex justify-between items-center cursor-pointer">
+                                Servicios
+                            </summary>
+                            <ul className="pl-4 mt-2 space-y-1">
+                                <li><a href="#sub1">Subservicio 1</a></li>
+                                <li><a href="#sub2">Subservicio 2</a></li>
+                                <li><a href="#sub3">Subservicio 3</a></li>
+                            </ul>
+                        </details></li>
                         <li><a href='#nosotros'>Nosotros</a></li>
                         <li><a href='#proyectos'>Blog</a></li>
                         <li><a href='#contacto'>Contacto</a></li>
@@ -72,13 +81,114 @@ export default function Navbar({ setTheme, theme }) {
                     <span className='font-bold'>LOGO</span>
                 </div>
 
-                <nav className='hidden lg:space-x-6 lg:flex'>
-                    <a className='cursor-pointer p-2 transition-all duration-100 ease-in-out hover:border-b-5 border-b-5' href='#hero'>Home</a>
-                    <a className='cursor-pointer p-2 transition-all duration-100 ease-in-out hover:border-b-5' href='#servicios'>Servicios</a>
-                    <a className='cursor-pointer p-2 transition-all duration-100 ease-in-out hover:border-b-5' href='#nosotros'>Nosotros</a>
-                    <a className='cursor-pointer p-2 transition-all duration-100 ease-in-out hover:border-b-5' href='#proyectos'>Blog</a>
-                    <a className='cursor-pointer p-2 transition-all duration-100 ease-in-out hover:border-b-5' href='#contacto'>Contacto</a>
+                <nav className="hidden lg:flex lg:space-x-6">
+                    <ul className="flex justify-center items-center space-x-4">
+                        <li>
+                            <a
+                                href="#hero"
+                                className="cursor-pointer px-2 py-5 transition-all duration-100 ease-in-out border-b-3 border-b-transparent hover:border-b-primary"
+                            >
+                                Home
+                            </a>
+                        </li>
+
+                        {/* Servicios con submenú */}
+                        <li className="relative group">
+                            <a
+                                href="#servicios"
+                                className="cursor-pointer px-2 py-5 flex items-center gap-1 transition-all duration-100 ease-in-out border-b-3 border-b-transparent hover:border-b-primary"
+                            >
+                                Servicios
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    strokeWidth="1.5"
+                                    stroke="currentColor"
+                                    className="w-4 h-4"
+                                >
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                                </svg>
+                            </a>
+
+                            {/* Submenú */}
+                            <div className="absolute z-50 hidden group-hover:flex bg-white shadow-md rounded-md w-100 p-3 text-sm text-gray-800">
+                                <ul>
+                                    <li>
+                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                                            Programas de Proteccion Civil
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                                            Dictamenes
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                                            Normas STPS
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className='block px-4 py-2 hover:bg-gray-100'>
+                                            Alertamiento Sismico
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className='block px-4 py-2 hover:bg-gray-100'>
+                                            Señalizaciones y Equipo
+                                        </a>
+                                    </li>
+                                </ul>
+                                <ul>
+                                    <li>
+                                        <a href="#" className="block px-4 py-2 hover:bg-gray-100">
+                                            Trámites y Gestoría
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className='block px-4 py-2 hover:bg-gray-100'>
+                                            Extintores
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" className='block px-4 py-2 hover:bg-gray-100'>
+                                            Capacitaciones
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a
+                                href="#nosotros"
+                                className="cursor-pointer px-2 py-5 transition-all duration-100 ease-in-out border-b-3 border-b-transparent hover:border-b-primary"
+                            >
+                                Nosotros
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#proyectos"
+                                className="cursor-pointer px-2 py-5 transition-all duration-100 ease-in-out border-b-3 border-b-transparent hover:border-b-primary"
+                            >
+                                Blog
+                            </a>
+                        </li>
+                        <li>
+                            <a
+                                href="#contacto"
+                                className="cursor-pointer px-2 py-5 transition-all duration-100 ease-in-out border-b-3 border-b-transparent hover:border-b-primary"
+                            >
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
                 </nav>
+
 
                 <div className='flex justify-center items-center gap-2'>
                     <div className='flex justify-center items-center'>
