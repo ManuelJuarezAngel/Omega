@@ -3,7 +3,9 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import AOS from "aos"
 import 'aos/dist/aos.css'
+import HeaderIndex from "./components/Header/HeaderSection.jsx";
 import ServicesSection from "./components/Services/ServicesSection.jsx";
+import ServiceStructuredData from "./components/ServiceStructuredData.jsx";
 
 
 
@@ -40,7 +42,9 @@ function App() {
   return (
     <div className={`relative min-h-screen ${theme === "business" ? "text-white bg-gray-900" : "bg-base-200"}`}>
       <Navbar />
+      <HeaderIndex />
       <ServicesSection />
+      <ServiceStructuredData/>
       <Footer />
     </div>
   );
