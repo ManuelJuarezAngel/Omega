@@ -5,7 +5,7 @@ import AOS from "aos"
 import 'aos/dist/aos.css'
 import ServicesSection from "./components/Services/ServicesSection.jsx";
 import IndexNosotrosSection from "./components/Nosotros/NosotrosSection.jsx";
-import AboutSection from "./components/Nosotros/NosotrosSection.jsx";
+import ClientsSection from "./components/clientes/ClientsSection .jsx";
 
 
 
@@ -44,6 +44,7 @@ function App() {
       <Navbar />
       <ServicesSection />
       <IndexNosotrosSection/>
+      <ClientsSection />
       <Footer />
     </div>
   );
