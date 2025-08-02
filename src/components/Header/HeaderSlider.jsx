@@ -2,13 +2,13 @@ import React from "react"
 import { useKeenSlider } from "keen-slider/react"
 import "keen-slider/keen-slider.min.css"
 
-export default function HeaderSlider({ images }) {
+export default function HeaderSlider({ slides }) {
     const [opacities, setOpacities] = React.useState([])
     const [loaded, setLoaded] = React.useState(false)
     const [currentSlide, setCurrentSlide] = React.useState(0)
     const [sliderRef, instanceRef] = useKeenSlider({
         loop: true,
-        slides: images.length,
+        slides: slides.length,
         slideChanged(slider) {
             setCurrentSlide(slider.track.details.rel)
         },
@@ -21,21 +21,41 @@ export default function HeaderSlider({ images }) {
         },
     })
 
-
     return (
-        <div className="relative w-full max-h-screen overflow-hidden">
+        <div className="relative w-full h-lvh md:max-h-screen overflow-hidden">
             <div ref={sliderRef} className="keen-slider w-full h-full">
-                {images.map((src, idx) => (
+                {slides.map((slide, idx) => (
                     <div
                         key={idx}
-                        className="keen-slider__slide w-full h-full"
+                        className="keen-slider__slide w-full h-full relative"
                         style={{ opacity: opacities[idx] || 1 }}
                     >
                         <img
-                            src={src}
+                            src={slide.src}
                             alt={`slide-${idx}`}
                             className="w-full h-full object-cover"
                         />
+
+                        <div className="absolute inset-0 flex flex-col justify-center items-start mx-auto my-auto px-12 text-left text-white z-20 max-w-7xl">
+                            {slide.subtitle && (
+                                <p className="text-xs md:text-sm uppercase text-yellow-400 mb-1">
+                                    {slide.subtitle}
+                                </p>
+                            )}
+                            <h2 className="text-xl md:text-5xl font-bold leading-tight">
+                                {slide.title}
+                            </h2>
+                            {slide.description && (
+                                <p className="mt-4 text-sm text-gray-200">
+                                    {slide.description}
+                                </p>
+                            )}
+                            {slide.buttonText && (
+                                <button className="mt-6 bg-blue-700 hover:bg-blue-800 px-3 py-1 md:px-6 md:py-2 rounded text-white font-semibold">
+                                    {slide.buttonText}
+                                </button>
+                            )}
+                        </div>
                     </div>
                 ))}
             </div>
